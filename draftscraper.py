@@ -16,7 +16,7 @@ column_names=[]
 # Download chromedriver and set your directory here
 driver=webdriver.Chrome("C:\\Users\\santi\\chromedriver.exe")
 # Set lol gamepedia link here
-driver.get("https://lol.gamepedia.com/LLA/2020_Season/Opening_Season/Picks_and_Bans")
+driver.get("https://lol.gamepedia.com/LEC/2020_Season/Spring_Season/Picks_and_Bans")
 content=driver.page_source
 soup=BeautifulSoup(content)
 
@@ -91,7 +91,7 @@ for i in range(len(score)):
     else:
         wl.append("Red")
 # Add champions as riot adds them        
-champions='aatrox ahri akali alistar amumu anivia annie aphelios ashe aurelionsol azir bard blitzcrank brand braum caitlyn camille cassiopeia chogath corki drmundo draven ekko elise evelynn ezreal fiddlesticks fiora fizz galio gangplank garen gnar gragas graves hecarim heimerdinger illaoi irelia ivern janna jarvaniv jax jayce jhin jinx kaisa kalista karma karthus kassadin katarina kayle kayn kennen khazix kindred kled kogmaw leblanc leesin leona lissandra lucian lulu lux malphite malzahar maokai masteryi missfortune mordekaiser morgana nami nasus nautilus neeko nidalee nocturne nunu olaf orianna ornn pantheon poppy pyke qiyana quinn rakan rammus reksai renekton rengar riven rumble ryze sejuani senna sett sion shaco shen shyvana sivir skarner sona soraka swain sylas syndra tahmkench taliyah talon taric teemo thresh tristana trundle tryndamere twistedfate twitch udyr urgot varus vayne veigar velkoz "vi" viktor vladimir volibear warwick wukong xayah xerath xinzhao yasuo yorick yuumi zac zed ziggs zilean zoe zyra'.split()
+champions='aatrox ahri akali alistar amumu anivia annie aphelios ashe aurelionsol azir bard blitzcrank brand braum caitlyn camille cassiopeia chogath corki diana drmundo draven ekko elise evelynn ezreal fiddlesticks fiora fizz galio gangplank garen gnar gragas graves hecarim heimerdinger illaoi irelia ivern janna jarvaniv jax jayce jhin jinx kaisa kalista karma karthus kassadin katarina kayle kayn kennen khazix kindred kled kogmaw leblanc leesin leona lissandra lucian lulu lux malphite malzahar maokai masteryi missfortune mordekaiser morgana nami nasus nautilus neeko nidalee nocturne nunu olaf orianna ornn pantheon poppy pyke qiyana quinn rakan rammus reksai renekton rengar riven rumble ryze sejuani senna sett sion shaco shen shyvana sivir skarner sona soraka swain sylas syndra tahmkench taliyah talon taric teemo thresh tristana trundle tryndamere twistedfate twitch udyr urgot varus vayne veigar velkoz "vi" viktor vladimir volibear warwick wukong xayah xerath xinzhao yasuo yorick yuumi zac zed ziggs zilean zoe zyra'.split()
 
 def bancleanup(x):
     xc=[]
@@ -146,7 +146,7 @@ BP2c,BP3c=dpcleanup(BP2_3)
 BP4c,BP5c=dpcleanup(BP4_5)
 
 #Change patch list as necessary
-s10p="10.3 10.4 10.5 10.6 10.7 10.8 10.9 10.10 10.11 10.12 10.13 10.14 10.15 10.16 10.17 10.18 10.19 10.20".split()
+s10p="10.1 10.2 10.3 10.4 10.5 10.6 10.7 10.8 10.9 10.10 10.11 10.12 10.13 10.14 10.15 10.16 10.17 10.18 10.19 10.20".split()
 def patchcleanup(x):
     xc=[]
     i=0
@@ -180,3 +180,5 @@ draftdata=pd.DataFrame({
     "BP5":BP5c,
     "RP5":RP5c
     })
+
+draftdata.to_csv("LEC_regular.csv")
