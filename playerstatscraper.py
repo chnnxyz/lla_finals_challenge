@@ -18,7 +18,7 @@ column_names=[]
 # Download chromedriver and set your directory here
 driver=webdriver.Chrome("C:\\Users\\santi\\chromedriver.exe")
 # Set lol gamepedia link here
-driver.get("https://lol.gamepedia.com/LLA/2020_Season/Opening_Season/Player_Statistics")
+driver.get("https://lol.gamepedia.com/LPL/2020_Season/Spring_Season/Player_Statistics")
 content=driver.page_source
 soup=BeautifulSoup(content)
 
@@ -49,7 +49,7 @@ cpool=[]
 
 
 table = soup.find(lambda tag: tag.name=='div' and tag.has_attr('class') and tag['class']=="wide-content-scroll")
-table2=BeautifulSoup(str(soup.find_all("tbody")[10:]))
+table2=BeautifulSoup(str(soup.find_all("tbody")[5:]))
 
 
 for tr in table2.find_all("tr")[0:]:
@@ -135,5 +135,5 @@ goldhsare
 champpool
 """.split()
 
-data.to_csv("LLA_playerstats_regular.csv")
+data.to_csv("LPL_playerstats_regular.csv")
 
